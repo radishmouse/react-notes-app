@@ -17,6 +17,10 @@ class App extends React.Component {
             <li className="document-list-item">Note numbah three</li>
           </ul>
         </div>
+
+        <div className="document-editor">
+          <textarea value="This is a note. See?" />
+        </div>
       </div>
     );
   }
