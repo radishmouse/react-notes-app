@@ -4,7 +4,9 @@ class DocumentEditor extends React.Component {
   render() {
     return (
       <div className="document-editor">
-        <textarea value="This is a note. See?" />
+        <textarea
+          value={this.props.note.content}
+        />
       </div>
     );
   }

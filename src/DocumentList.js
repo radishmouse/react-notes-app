@@ -3,8 +3,15 @@ import React from 'react';
 class DocumentList extends React.Component {
   render() {
     let items = this.props.allNotes.map(note => (
-        <li className="document-list-item" key={note.id}>
-          {note.title}
+        <li
+          className="document-list-item"
+          key={note.id}
+        >
+          <a href="#" onClick={() => {
+            this.props.handleSelection(note.id);
+          }}>
+            {note.title}
+          </a>
         </li>
       )
     );

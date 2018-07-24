@@ -32,12 +32,20 @@ class App extends React.Component {
         <SearchBar />
         <DocumentList
           allNotes={this.state.notes}
+          handleSelection={this._selectNote}
         />
-        <DocumentEditor />
+        <DocumentEditor
+          note={this.state.notes[0]}
+        />
 
       </div>
     );
   }
+
+  _selectNote = (noteId) => {
+    console.log(noteId);
+  }
+
 }
 
 export default App;
