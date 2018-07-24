@@ -2,13 +2,17 @@ import React from 'react';
 
 class DocumentList extends React.Component {
   render() {
-    return (
+    let items = this.props.allNotes.map(note => (
+        <li className="document-list-item">
+          {note.title}
+        </li>
+      )
+    );
 
+    return (
       <div className="document-list">
         <ul>
-          <li className="document-list-item">Note numbah one!!!!!!!</li>
-          <li className="document-list-item">Note numbah two</li>
-          <li className="document-list-item">Note numbah three</li>
+          {items}
         </ul>
       </div>
 

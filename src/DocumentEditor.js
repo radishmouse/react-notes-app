@@ -10,7 +10,6 @@ class DocumentEditor extends React.Component {
   }
 }
 
-
 // A function component is like a
 // "render-only" component.
 // It can't have state.
