@@ -38,7 +38,6 @@ class App extends React.Component {
         <DocumentEditor
           note={this._getSelectedNote()}
         />
-
       </div>
     );
   }
@@ -53,7 +52,6 @@ class App extends React.Component {
 
   _selectNote = (noteId) => {
     console.log(noteId);
-
     // I want to save the id
     // of the selected note.
     this.setState({
