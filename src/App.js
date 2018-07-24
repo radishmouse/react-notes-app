@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      selectedId: -1,  // -1 means no selection
       notes: [
         {
           id: 1001,
@@ -44,6 +45,12 @@ class App extends React.Component {
 
   _selectNote = (noteId) => {
     console.log(noteId);
+
+    // I want to save the id
+    // of the selected note.
+    this.setState({
+      selectedId: noteId
+    });
   }
 
 }
