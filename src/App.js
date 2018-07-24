@@ -36,11 +36,19 @@ class App extends React.Component {
           handleSelection={this._selectNote}
         />
         <DocumentEditor
-          note={this.state.notes[0]}
+          note={this._getSelectedNote()}
         />
 
       </div>
     );
+  }
+
+  _getSelectedNote = () => {
+    let theNote = this.state.notes.find(note => note.id === this.state.selectedId);
+    if (!theNote) {
+      theNote = this.state.notes[0];
+    }
+    return theNote;
   }
 
   _selectNote = (noteId) => {
