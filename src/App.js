@@ -63,7 +63,9 @@ class App extends React.Component {
       updatedNote
     ];
     // set the state
-
+    this.setState({
+      notes: notesArrayWithUpdatedNote
+    });
   }
 
   _allNotesExceptSelectedNote = () => {
