@@ -26,6 +26,7 @@ class App extends React.Component {
       ]
     };
   }
+
   render() {
     return (
       <div className="notes-app">
@@ -78,8 +79,8 @@ class App extends React.Component {
 
     // Version #2: sprinkles! a.k.a. "Array spread"
     let notesArrayWithUpdatedNote = [
-      ...this._allNotesExceptSelectedNote(),
-      updatedNote
+      updatedNote,
+      ...this._allNotesExceptSelectedNote()
     ];
 
     // set the state
