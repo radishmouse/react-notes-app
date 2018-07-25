@@ -43,6 +43,12 @@ class App extends React.Component {
     );
   }
 
+  componentDidMount() {
+    this.setState({
+      selectedId: this.state.notes[0].id
+    });
+  }
+
   _updateNote = (noteContent) => {
     // grab existing note
     let theNote = this._getSelectedNote();
@@ -83,7 +89,11 @@ class App extends React.Component {
   }
 
   _allNotesExceptSelectedNote = () => {
-    let notesWithoutSelectedNote = this.state.notes.filter(note => note.id !== this.state.selectedId);
+    let selectedId = this.state.selectedId;
+    if (selectedId === -1) {
+      selectedId = this.state.notes[0].id;
+    }
+    let notesWithoutSelectedNote = this.state.notes.filter(note => note.id !== selectedId);
     return notesWithoutSelectedNote;
   }
 
