@@ -23,7 +23,20 @@ class App extends React.Component {
           timestamp: new Date(),
           title: 'The Life and Times of Milla',
           content: 'purr purr, drool drool.'
-        }
+        },
+        {
+          id: 1003,
+          timestamp: new Date(),
+          title: 'Things',
+          content: 'things are good, except when they are bad.'
+        },
+        {
+          id: 1004,
+          timestamp: new Date(),
+          title: 'Stuff stuff stuff',
+          content: 'I like pizza'
+        },
+
       ]
     };
   }
@@ -37,7 +50,7 @@ class App extends React.Component {
           handleChange={this._updateSearchText}
         />
         <DocumentList
-          allNotes={this.state.notes}
+          allNotes={this._getFilteredNotes()}
           handleSelection={this._selectNote}
         />
         <DocumentEditor
@@ -106,6 +119,24 @@ class App extends React.Component {
     }
     let notesWithoutSelectedNote = this.state.notes.filter(note => note.id !== selectedId);
     return notesWithoutSelectedNote;
+  }
+
+  _getFilteredNotes = () => {
+    // Is there any searchText?
+    if (this.state.searchText !== '') {
+      // If so, filter the notes
+      let filteredNotes = this.state.notes.filter(note => {
+        let doesTitleMatch = note.title.toLowerCase().includes(this.state.searchText.toLowerCase());
+
+        let doesContentMatch = note.content.toLowerCase().includes(this.state.searchText.toLowerCase());
+
+        return doesTitleMatch || doesContentMatch;
+      });
+      return filteredNotes;
+    } else {
+      // If not, return all the notes
+      return this.state.notes;
+    }
   }
 
   _getSelectedNote = () => {
