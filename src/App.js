@@ -37,6 +37,7 @@ class App extends React.Component {
         />
         <DocumentEditor
           note={this._getSelectedNote()}
+          handleChange={this._updateNote}
         />
       </div>
     );
@@ -46,7 +47,7 @@ class App extends React.Component {
     // grab existing note
     let theNote = this._getSelectedNote();
 
-    // make a copy and update the copy
+    // make a copy of the selected note and update the copy
 
     // Version #1: Object.assign
     // let updatedNote = Object.assign({}, theNote);
